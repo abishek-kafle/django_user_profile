@@ -9,6 +9,7 @@ from rest_framework import filters
 from rest_framework.authtoken.views import ObtainAuthToken
 from rest_framework.settings import api_settings
 from .permissions import UpdateOwnProfile
+from django.http import HttpResponse
 
 
 class HelloApiView(APIView):
@@ -76,3 +77,6 @@ class UserProfileViewSet(viewsets.ModelViewSet):
 class UserLoginApiView(ObtainAuthToken):
     """HandleUserAuthTokens"""
     renderer_classes = api_settings.DEFAULT_RENDERER_CLASSES
+   
+def index(request):
+    return HttpResponse("<h1>Hello World</h1>")
